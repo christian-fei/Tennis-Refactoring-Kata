@@ -26,27 +26,33 @@ public class TennisGame1 implements TennisGame {
 		} else if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore)) {
 			score = formatAdvantageOrWinScore();
 		} else {
-			for (int i = 1; i < 3; i++) {
-				if (i == 1)
-					tempScore = firstPlayerScore;
-				else {
-					score += "-";
-					tempScore = secondPlayerScore;
-				}
-				switch (tempScore) {
-				case 0:
-					score += "Love";
-					break;
-				case 1:
-					score += "Fifteen";
-					break;
-				case 2:
-					score += "Thirty";
-					break;
-				case 3:
-					score += "Forty";
-					break;
-				}
+			score = formatSimpleScore(score);
+		}
+		return score;
+	}
+
+	private String formatSimpleScore(String score) {
+		int tempScore;
+		for (int i = 1; i < 3; i++) {
+			if (i == 1)
+				tempScore = firstPlayerScore;
+			else {
+				score += "-";
+				tempScore = secondPlayerScore;
+			}
+			switch (tempScore) {
+			case 0:
+				score += "Love";
+				break;
+			case 1:
+				score += "Fifteen";
+				break;
+			case 2:
+				score += "Thirty";
+				break;
+			case 3:
+				score += "Forty";
+				break;
 			}
 		}
 		return score;
