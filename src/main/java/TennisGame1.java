@@ -21,15 +21,15 @@ public class TennisGame1 implements TennisGame {
 
 	public String getScore() {
 		if (isEven(firstPlayerScore, secondPlayerScore)) {
-			return formatEvenScore();
+			return formatEvenScore(firstPlayerScore, secondPlayerScore);
 		}
 		if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore)) {
-			return formatAdvantageOrWinScore();
+			return formatAdvantageOrWinScore(firstPlayerScore, secondPlayerScore);
 		} 
-		return formatSimpleScore();
+		return formatSimpleScore(firstPlayerScore, secondPlayerScore);
 	}
 
-	private String formatSimpleScore() {
+	private String formatSimpleScore(int firstPlayerScore, int secondPlayerScore) {
 		String score = "";
 		int tempScore;
 		for (int i = 1; i < 3; i++) {
@@ -57,7 +57,7 @@ public class TennisGame1 implements TennisGame {
 		return score;
 	}
 
-	private String formatAdvantageOrWinScore() {
+	private String formatAdvantageOrWinScore(int firstPlayerScore, int secondPlayerScore) {
 		String score;
 		int minusResult = firstPlayerScore - secondPlayerScore;
 		if (minusResult == 1)
@@ -71,7 +71,7 @@ public class TennisGame1 implements TennisGame {
 		return score;
 	}
 
-	private String formatEvenScore() {
+	private String formatEvenScore(int firstPlayerScore, int secondPlayerScore) {
 		String score;
 		switch (firstPlayerScore) {
 		case 0:
