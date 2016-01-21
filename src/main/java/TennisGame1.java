@@ -21,7 +21,7 @@ public class TennisGame1 implements TennisGame {
     public String getScore() {
         String score = "";
         int tempScore=0;
-        if (firstPlayerScore==secondPlayerScore)
+        if (isEven(firstPlayerScore, secondPlayerScore))
         {
             switch (firstPlayerScore)
             {
@@ -73,4 +73,8 @@ public class TennisGame1 implements TennisGame {
         }
         return score;
     }
+
+	private boolean isEven(int firstPlayerScore, int secondPlayerScore) {
+		return firstPlayerScore==secondPlayerScore;
+	}
 }
