@@ -58,37 +58,30 @@ public class TennisGame1 implements TennisGame {
 	}
 
 	private String formatAdvantageOrWinScore(int firstPlayerScore, int secondPlayerScore) {
-		String score;
-		int minusResult = firstPlayerScore - secondPlayerScore;
-		if (minusResult == 1)
-			score = "Advantage player1";
-		else if (minusResult == -1)
-			score = "Advantage player2";
-		else if (minusResult >= 2)
-			score = "Win for player1";
-		else
-			score = "Win for player2";
-		return score;
+		int scoreDifference = firstPlayerScore - secondPlayerScore;
+		if (scoreDifference == 1){
+			return "Advantage player1";
+		}
+		if (scoreDifference == -1){
+			return "Advantage player2";
+		}
+		if (scoreDifference >= 2) {
+			return "Win for player1";
+		}
+		return "Win for player2";
 	}
 
 	private String formatEvenScore(int firstPlayerScore, int secondPlayerScore) {
-		String score;
-		switch (firstPlayerScore) {
-		case 0:
-			score = "Love-All";
-			break;
-		case 1:
-			score = "Fifteen-All";
-			break;
-		case 2:
-			score = "Thirty-All";
-			break;
-		default:
-			score = "Deuce";
-			break;
-
+		if( firstPlayerScore == 0 ){
+			return "Love-All";
 		}
-		return score;
+		if( firstPlayerScore == 1 ){
+			return "Fifteen-All";
+		}
+		if( firstPlayerScore == 2 ){
+			return "Thirty-All";
+		}
+		return "Deuce";
 	}
 
 	private boolean isAdvantageOrWin(int firstPlayerScore, int secondPlayerScore) {
