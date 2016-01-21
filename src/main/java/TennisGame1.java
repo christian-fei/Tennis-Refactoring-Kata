@@ -28,33 +28,22 @@ public class TennisGame1 implements TennisGame {
 		} 
 		return formatSimpleScore(firstPlayerScore, secondPlayerScore);
 	}
+	
+	private String formatScore(int score) {
+		if( score == 0 ){
+			return "Love";
+		}
+		if( score == 1 ){
+			return "Fifteen";
+		}
+		if( score == 2 ){
+			return "Thirty";
+		}
+		return "Forty";
+	}
 
 	private String formatSimpleScore(int firstPlayerScore, int secondPlayerScore) {
-		String score = "";
-		int tempScore;
-		for (int i = 1; i < 3; i++) {
-			if (i == 1)
-				tempScore = firstPlayerScore;
-			else {
-				score += "-";
-				tempScore = secondPlayerScore;
-			}
-			switch (tempScore) {
-			case 0:
-				score += "Love";
-				break;
-			case 1:
-				score += "Fifteen";
-				break;
-			case 2:
-				score += "Thirty";
-				break;
-			case 3:
-				score += "Forty";
-				break;
-			}
-		}
-		return score;
+		return formatScore(firstPlayerScore) + '-' + formatScore(secondPlayerScore);
 	}
 
 	private String formatAdvantageOrWinScore(int firstPlayerScore, int secondPlayerScore) {
