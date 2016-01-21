@@ -1,0 +1,15 @@
+*.class
+*.pyc
+.idea/workspace.xml
+
+*.class
+target/
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# IntelliJ files
+*.iml
+.idea/
