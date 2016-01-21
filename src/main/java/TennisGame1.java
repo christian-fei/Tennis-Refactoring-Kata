@@ -40,7 +40,7 @@ public class TennisGame1 implements TennisGame {
                 
             }
         }
-        else if (firstPlayerScore>=4 || secondPlayerScore>=4)
+        else if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore))
         {
             int minusResult = firstPlayerScore-secondPlayerScore;
             if (minusResult==1) score ="Advantage player1";
@@ -73,6 +73,10 @@ public class TennisGame1 implements TennisGame {
         }
         return score;
     }
+
+	private boolean isAdvantageOrWin(int firstPlayerScore, int secondPlayerScore) {
+		return firstPlayerScore>=4 || secondPlayerScore>=4;
+	}
 
 	private boolean isEven(int firstPlayerScore, int secondPlayerScore) {
 		return firstPlayerScore==secondPlayerScore;
