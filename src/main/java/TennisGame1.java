@@ -12,15 +12,15 @@ public class TennisGame1 implements TennisGame {
 	}
 
 	public void wonPoint(String playerName) {
-		if (playerName == firstPlayerName)
+		if (playerName == firstPlayerName) {
 			firstPlayerScore += 1;
-		else
+		} else {
 			secondPlayerScore += 1;
+		}
 	}
 
 	public String getScore() {
 		String score = "";
-		int tempScore = 0;
 		if (isEven(firstPlayerScore, secondPlayerScore)) {
 			score = formatEvenScore();
 		} else if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore)) {
