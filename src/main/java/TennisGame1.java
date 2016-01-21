@@ -2,8 +2,8 @@
 public class TennisGame1 implements TennisGame {
 
 	private ScoreFormatter scoreFormatter;
-	private int firstPlayerScore = 0;
-	private int secondPlayerScore = 0;
+	int firstPlayerScore = 0;
+	int secondPlayerScore = 0;
 	private String firstPlayerName;
 	private String secondPlayerName;
 
@@ -23,43 +23,12 @@ public class TennisGame1 implements TennisGame {
 
 	public String getScore() {
 		if (isEven()) {
-			return formatEvenScore();
+			return scoreFormatter.formatEvenScore(firstPlayerScore);
 		}
 		if (isAdvantageOrWin()) {
-			return formatAdvantageOrWinScore();
+			return scoreFormatter.formatAdvantageOrWinScore(firstPlayerScore, secondPlayerScore);
 		}
-		return formatSimpleScore();
-	}
-
-	private String formatSimpleScore() {
-		return scoreFormatter.formatScore(firstPlayerScore) + '-' + scoreFormatter.formatScore(secondPlayerScore);
-	}
-
-	private String formatAdvantageOrWinScore() {
-		int scoreDifference = firstPlayerScore - secondPlayerScore;
-		if (scoreDifference == 1) {
-			return "Advantage player1";
-		}
-		if (scoreDifference == -1) {
-			return "Advantage player2";
-		}
-		if (scoreDifference >= 2) {
-			return "Win for player1";
-		}
-		return "Win for player2";
-	}
-
-	private String formatEvenScore() {
-		if (firstPlayerScore == 0) {
-			return "Love-All";
-		}
-		if (firstPlayerScore == 1) {
-			return "Fifteen-All";
-		}
-		if (firstPlayerScore == 2) {
-			return "Thirty-All";
-		}
-		return "Deuce";
+		return scoreFormatter.formatSimpleScore(firstPlayerScore, secondPlayerScore);
 	}
 
 	private boolean isAdvantageOrWin() {
