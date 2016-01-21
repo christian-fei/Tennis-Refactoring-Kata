@@ -20,18 +20,17 @@ public class TennisGame1 implements TennisGame {
 	}
 
 	public String getScore() {
-		String score = "";
 		if (isEven(firstPlayerScore, secondPlayerScore)) {
-			score = formatEvenScore();
-		} else if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore)) {
-			score = formatAdvantageOrWinScore();
-		} else {
-			score = formatSimpleScore(score);
+			return formatEvenScore();
 		}
-		return score;
+		if (isAdvantageOrWin(firstPlayerScore, secondPlayerScore)) {
+			return formatAdvantageOrWinScore();
+		} 
+		return formatSimpleScore();
 	}
 
-	private String formatSimpleScore(String score) {
+	private String formatSimpleScore() {
+		String score = "";
 		int tempScore;
 		for (int i = 1; i < 3; i++) {
 			if (i == 1)
